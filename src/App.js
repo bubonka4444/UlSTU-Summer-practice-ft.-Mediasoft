@@ -8,7 +8,7 @@ import Cart from './components/Cart';
 import items from "./data.js";
 import Order from './components/Order';
 import LastPage from './components/LastPage';
-import CartItem from './components/CartItem';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -24,13 +24,13 @@ function App() {
   }, []);
 
   const addToCart = (item) => {
-    const updatedCartItems = [...cartItems, item];
+    let updatedCartItems = [...cartItems, item];
     setCartItems(updatedCartItems);
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems))
   };
 
-  const removeFromCart = (item) => {
-    const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== item.id)
+  const removeFromCart = (cartItem) => {
+    let updatedCartItems = cartItems.filter((element) => element.id !== cartItem.id)
     setCartItems(updatedCartItems);
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   }
