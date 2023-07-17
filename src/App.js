@@ -9,7 +9,8 @@ import items from "./data.js";
 import Order from './components/Order';
 import LastPage from './components/LastPage';
 import CartItem from './components/CartItem';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   
@@ -56,6 +57,7 @@ function App() {
         <Route path='/last' element={<LastPage />} />
       </Routes>
       <Footer />
+      <ToastContainer position={"top-right"} autoClose={1500}/>
     </BrowserRouter>
   );
 }
